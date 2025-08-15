@@ -24,6 +24,7 @@ Inhalt:
 
 Requirements:
 * Typst: https://github.com/typst/typst
+* VS Code Plugin (optional): Tinymist Typst
 * pdfpc (optional): https://pdfpc.github.io/
 
 Generierung PDF:
@@ -33,7 +34,7 @@ Liste der installierten Fonts:
 `typst fonts`
 
 Export Speaker Notes (pdfpc):
-`polylux2pdfpc --root .. slides.typ`
+`typst query --root . slides.typ --field value --one "<pdfpc-file>" > slides.pdfpc`
 
 Start Präsentation:
 `pdfpc slides.pdf`
