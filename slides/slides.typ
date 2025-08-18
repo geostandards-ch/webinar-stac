@@ -1,7 +1,5 @@
 #import "./globals.typ": *
 
-#let bg-color = rgb("#97beb1")
-
 // https://touying-typ.github.io/docs/intro
 
 #let geostandards-theme(
@@ -39,9 +37,9 @@
           GeoStandards.ch
         ]),
     ),
-    config-common(
-      slide-fn: slide,
-    ),
+    // config-common(
+    //   slide-fn: slide,
+    // ),
     // config-colors(
     //   primary: bg-color.darken(80%),
     //   neutral-lightest: bg-color,

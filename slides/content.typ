@@ -1,4 +1,5 @@
 #import "./globals.typ": *
+#import "@preview/cades:0.3.0": qr-code
 
 #slide[
   #set align(horizon)
@@ -9,6 +10,7 @@
 ]
 
 #slide[
+  // #set page(header: none)
   #set align(horizon)
 
   #place(top+right, image("STAC-01.png", width: 30%))
@@ -17,132 +19,173 @@
   == SpatioTemporal Asset Catalogs
   ==
 
-  The STAC specification is a *common language to describe
-  geospatial information*, so it can more easily be worked with,
-  indexed, and discovered.
-
+  Organisation und Beschreibung
+  geografischer und/oder zeitlicher Daten.
+  
   #link("https://stacspec.org/")[ _stacspec.org_ ]
+
+Version 1.0: 25.5.2021 (API 1.0: 25.7.2023)
+
+  #speaker-note(```md
+    - JSON
+    - "Metadaten"
+    - Parallele Entwicklung zu OGC WFS3 -> API Features
+  ```)
 ]
 
 == STAC Spezifikation
 
-- *Item*: Enthält Assets (Files, etc.)
+- *STAC Catalog*: Organisation von Items, Collections und Catalogs
 
-- *Catalog*: JSON file of links that provides a structure to organize and browse STAC Items
+- *STAC Collection*: Sammlung von Items mit gemeinsamen Metadaten (Extents, Lizenz, Keywords, ...)
 
-- *Collection*: Catalog with additional information such as the extents, license, keywords, providers, et
+- *STAC Item*: Einzelnes Datenprodukt mit Links zu Assets
 
-== Aufbau STAC (JSON)
+- *STAC Asset*: Datei (Raster, Vektor, Metadaten, ...)
+  
+  _{ Catalog } $->$ { Collection }  $->$ { Item }  $->$ { Asset }_
 
-- Version, Extensions, etc.
-- Collections
-  - Collection
-    - Assets (Items) (href, media_type, roles, etc.)
-    - Links (href, roles, etc.)
-  - Links
-- Links
+#speaker-note(```md
+  - Assets (Items) (href, media_type, roles, etc.)
+  - Items / Asset Typen (media_type):
+    - TIFF, COG, JPEG, PNG, ZARR, ...
+    - GeoJSON, GeoPackage, FlatGeobuf, GeoParquet, XTF, ...
+    - PDF, KML, QLR, ...
+```)
 
-#speaker-note(
-  ```md
-  - Asset roles: data, thumbnail, overview, metadata,...
-  - Link roles: self, parent, child, root, item, collection, service, etc.
-  ```
-)
+== STAC Eigenschaften
 
+- Format: JSON
+- Single File oder Links zu Collection Files, Item Files
+- Links mit Roles
+- Extensions
+  - Projection
+  - Raster
+  - Landsat, SAR, ...
+  - #link("https://stac-extensions.github.io")[ _stac-extensions.github.io_ ]
 
-
-
-== Items / Asset Typen (media_type)
-
-- TIFF, COG, JPEG, PNG, ZARR, ...
-
-- GeoJSON, GeoPackage, FlatGeobuf, GeoParquet, ...
-
-- PDF, KML, ...
-
-// from https://pystac.readthedocs.io/en/stable/api/media_type.html
-
-
-== STAC Extensions
-
-- ...
-
+#speaker-note(```md
+  - Links (href (URL), roles, etc.)
+  - Asset Roles: data, thumbnail, overview, metadata, ...
+  - Links Roles: self, parent, child, root, next, item, collection, service, etc.
+  - Raster extension: Bänder
+```)
 
 == STAC API
 
-- ...
+- Core + API - Features
+- Suche
+- Extensions:
+  - Aggregation, Sortierung, Transaktion, ...
 
-#speaker-note(
-  ```md
-  Öffentliche Kataloge:
-  - geo.admin.ch
-  - geodienste.ch
-  ```
-)
+#speaker-note(```md
+  - Core: Durchsuchen von Katalogin, Features: = OGC API Features
+  - Aggregation: aggregated data over a search
+```)
 
+== Verbreitung
 
-== Beispiel HTML Ansicht via Service (Demo)
+- Planet Labs, Maxar, ...
+- NASA, ESA, Copernicus, ...
+- Microsoft Planetary Computer, Google Earth Engine...
+- Panoramax, ...
+- data.geo.admin.ch, geodienste.ch
 
-#speaker-note(
-  ```md
-  https://geoservice.dlr.de/eoc/ogc/stac/v1/
-  ```
-)
+- #link("https://stacindex.org/")[ _stacindex.org_ ]
 
+#speaker-note(```md
+  - Private Erdbeobachtung / Satellitenbilder
+  - Panoramax: OSM-Umfeld, street-level pictures / Straßenbilder
+```)
 
+== Katalog Demo (HTML/JSON)
 
-== JSON-Ansicht (Demo)
+#align(center, link("https://geoservice.dlr.de/eoc/ogc/stac/v1/", image("Screenshot-HTML-Catalog.jpg", width: 70%)))
 
-Via Service oder statisch.
-
-#speaker-note(
-  ```md
+#speaker-note(```md
+  Collections -> Quicklook Products
   https://geoservice.dlr.de/eoc/ogc/stac/v1/collections/ENMAP_HSI_L0_QL?f=json
-  ```
-)
+```)
 
 == STAC Tools
 
 - Clients
-  - Python
-  - QGIS (_Demo_)
-  - ...
+  - PySTAC, pystac-client, stactools, ...
+  - R, Kommandozeile, ...
+  - STAC Browser
+  - QGIS (_Demo_), ...
 - Services
+  - pygeoapi, pycsw
   - pgSTAC
-  - ..
-- https://stacindex.org/
+- #link("https://stacindex.org/")[ _stacindex.org_ ]
 
-#speaker-note(
-  ```md
-  ```
-)
-
+#speaker-note(```md
+  - PySTAC - read + write *static* catalogs
+```)
 
 == OGC API Standards
 
-- OGC API Records (Nachfolge CSW)
-  - ...
-- OGC API Features (Nachfolge WFS)
-  - ...
+- OGC API - Records (Nachfolge CSW)
+- OGC API - Features (Nachfolge WFS)
 
+== OGC API Records
+
+- Version 1.0: 2.5.2025
+- Grosse Überlappung mit STAC
+  - STAC Item $->$ Record
+  - STAC Collection $->$ Record Collection
+  - STAC Catalog $->$ Record Collection
+
+#speaker-note(```md
+  https://github.com/stac-utils/stac-crosswalks/tree/master/ogcapi-records`
+```)
+
+== OGC API Features
+
+- Version 1.0: 14.10.2019
+  - Direktzugriff auf einzelne Features \
+    (Geometrie + Attribute)
+  - Vektordaten
+  - Metadaten analog API Features & STAC
+  - "STAC API specification is fully aligned with OGC API - Features Version 1.0"
 
 == eCH-0056
 
-- ...
+- Downloaddienste
+  - STAC und optional STAC-API
+  - INTERLIS-XTF Support
+- Direktzugriffs-Downloaddienste
+  - OGC Web Feature Service (WFS)
+    oder OGC API Features Part 1+2
+  - OGC Web Coverage Service (WCS)
+- Suchdienst
+  - OGC Catalog Service Web (CSW)
 
+#speaker-note(
+```md
+- Anwendungsprofil Geodienste
+- Zukunft wohl CSW -> OGC API Records
+```
+)
 
-== Fazit
+== STAC - Zusammenfassung
 
-- Metadadaten für Geodaten (Filesystem oder http)
+- Katalogzugriff auf Geodaten (Filesystem oder Web)
 - Verwandt mit OGC Standards
 - Nutzbar ohne Dienst
+  - Dienste $->$ cloud-optimierte Formate ?
 - Grosse Verbreitung
-- ...
-
+- Gute Toolunterstützung
 
 == STAC und OGC API Standards
 _Pirmin Kalberer, Sourcepole AG, Zürich_
 
-- Unterlagen: https://github.com/geostandards-ch/webinar-stac (TODO: QR-Code)
+#v(2em)
+
+Unterlagen:
   - Folien
   - Hands-On Unterlagen (Praktische Übungen)
+  #link("https://github.com/geostandards-ch/webinar-stac")[ _github.com/geostandards-ch/webinar-stac_ ]
+
+#place(right, qr-code("https://github.com/geostandards-ch/webinar-stac", width: 3cm,
+color: bg-color.darken(50%)))
