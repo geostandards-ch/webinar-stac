@@ -20,6 +20,7 @@
       paper: "presentation-" + aspect-ratio,
       margin: (top: 4em),
       fill: bg-color,
+      background: place(horizon+right, dx: -5%, dy: 10%, image("geostandards-grafik-ch-transp.png", width: 30%)),
       header: align(top,
           block(
             inset: (left: 74pt, rest: 37pt),

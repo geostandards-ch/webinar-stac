@@ -2,6 +2,7 @@
 #import "@preview/cades:0.3.0": qr-code
 
 #slide[
+  #set page(header: none, footer: none, background: none)
   #set align(horizon)
 
   Webinar
@@ -10,10 +11,9 @@
 ]
 
 #slide[
-  // #set page(header: none)
   #set align(horizon)
 
-  #place(top+right, image("STAC-01.png", width: 30%))
+  #place(top+right, dy: -80pt, image("STAC-01.png", width: 30%))
 
   = STAC
   == SpatioTemporal Asset Catalogs
@@ -25,12 +25,6 @@
   #link("https://stacspec.org/")[ _stacspec.org_ ]
 
 Version 1.0: 25.5.2021 (API 1.0: 25.7.2023)
-
-  #speaker-note(```md
-    - JSON
-    - "Metadaten"
-    - Parallele Entwicklung zu OGC WFS3 -> API Features
-  ```)
 ]
 
 == STAC Spezifikation
@@ -83,6 +77,15 @@ Version 1.0: 25.5.2021 (API 1.0: 25.7.2023)
   - Aggregation: aggregated data over a search
 ```)
 
+== Katalog Demo (HTML/JSON)
+
+#align(center, link("https://geoservice.dlr.de/eoc/ogc/stac/v1/", image("Screenshot-HTML-Catalog.jpg", width: 70%)))
+
+#speaker-note(```md
+  Collections -> Quicklook Products
+  https://geoservice.dlr.de/eoc/ogc/stac/v1/collections/ENMAP_HSI_L0_QL?f=json
+```)
+
 == Verbreitung
 
 - Planet Labs, Maxar, ...
@@ -94,17 +97,8 @@ Version 1.0: 25.5.2021 (API 1.0: 25.7.2023)
 - #link("https://stacindex.org/")[ _stacindex.org_ ]
 
 #speaker-note(```md
-  - Private Erdbeobachtung / Satellitenbilder
+  - Privatfirmen Erdbeobachtung / Satellitenbilder
   - Panoramax: OSM-Umfeld, street-level pictures / Straßenbilder
-```)
-
-== Katalog Demo (HTML/JSON)
-
-#align(center, link("https://geoservice.dlr.de/eoc/ogc/stac/v1/", image("Screenshot-HTML-Catalog.jpg", width: 70%)))
-
-#speaker-note(```md
-  Collections -> Quicklook Products
-  https://geoservice.dlr.de/eoc/ogc/stac/v1/collections/ENMAP_HSI_L0_QL?f=json
 ```)
 
 == STAC Tools
@@ -113,7 +107,7 @@ Version 1.0: 25.5.2021 (API 1.0: 25.7.2023)
   - PySTAC, pystac-client, stactools, ...
   - R, Kommandozeile, ...
   - STAC Browser
-  - QGIS (_Demo_), ...
+  - QGIS (_Demo_), ArcGIS Pro, ...
 - Services
   - pygeoapi, pycsw
   - pgSTAC
@@ -177,6 +171,9 @@ Version 1.0: 25.5.2021 (API 1.0: 25.7.2023)
 - Grosse Verbreitung
 - Gute Toolunterstützung
 
+#slide[
+  #set page(header: none, footer: none, background: none)
+
 == STAC und OGC API Standards
 _Pirmin Kalberer, Sourcepole AG, Zürich_
 
@@ -189,3 +186,5 @@ Unterlagen:
 
 #place(right, qr-code("https://github.com/geostandards-ch/webinar-stac", width: 3cm,
 color: bg-color.darken(50%)))
+
+]
