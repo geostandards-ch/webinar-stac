@@ -8,6 +8,11 @@
   Webinar
   = STAC und OGC API Standards
   Pirmin Kalberer, Sourcepole AG, Zürich
+
+  #speaker-note(```md
+    - GIS-Fachleute
+    - Einführung in STAC und verwandte OGC API Standards
+  ```)
 ]
 
 #slide[
@@ -137,10 +142,10 @@ Version 1.0: 25.5.2021 (API 1.0: 25.7.2023)
 == OGC API Features
 
 - Version 1.0: 14.10.2019
+  - Collections von Vektordaten
   - Direktzugriff auf einzelne Features \
     (Geometrie + Attribute)
-  - Vektordaten
-  - Metadaten analog API Features & STAC
+  - Metadaten
   - "STAC API specification is fully aligned with OGC API - Features Version 1.0"
 
 == eCH-0056
@@ -177,14 +182,15 @@ Version 1.0: 25.5.2021 (API 1.0: 25.7.2023)
 == STAC und OGC API Standards
 _Pirmin Kalberer, Sourcepole AG, Zürich_
 
-#v(2em)
+#v(1em)
 
 Unterlagen:
   - Folien
   - Hands-On Unterlagen (Praktische Übungen)
   #link("https://github.com/geostandards-ch/webinar-stac")[ _github.com/geostandards-ch/webinar-stac_ ]
 
-#place(right, qr-code("https://github.com/geostandards-ch/webinar-stac", width: 3cm,
+#v(1em)
+#place(left, qr-code("https://github.com/geostandards-ch/webinar-stac", width: 3cm,
 color: bg-color.darken(50%)))
 
 ]
