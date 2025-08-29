@@ -26,7 +26,7 @@
 
   Organisation und Beschreibung
   geografischer und/oder zeitlicher Daten.
-  
+
   #link("https://stacspec.org/")[ _stacspec.org_ ]
 
 Version 1.0: 25.5.2021 (API 1.0: 25.7.2023)
@@ -41,7 +41,7 @@ Version 1.0: 25.5.2021 (API 1.0: 25.7.2023)
 - *STAC Item*: Einzelnes Datenprodukt mit Links zu Assets
 
 - *STAC Asset*: Datei (Raster, Vektor, Metadaten, ...)
-  
+
   _{ Catalog } $->$ { Collection }  $->$ { Item }  $->$ { Asset }_
 
 #speaker-note(```md
@@ -147,6 +147,12 @@ Version 1.0: 25.5.2021 (API 1.0: 25.7.2023)
     (Geometrie + Attribute)
   - Metadaten
   - "STAC API specification is fully aligned with OGC API - Features Version 1.0"
+
+  #speaker-note(
+  ```md
+  - The STAC API extends the OGC API - Features - Part 1: Core with additional web service endpoints and object attributes.
+  ```
+  )
 
 == eCH-0056
 

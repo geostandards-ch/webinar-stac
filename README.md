@@ -9,9 +9,9 @@ Inhalt:
 
 ## Webinar und Schulungsunterlagen
 
-* Video (Dauer 10'):
-* Slides (PDF):
-* Schulungsunterlagen:
+* Video
+* Slides (PDF)
+* [Schulungsunterlagen](./hands-on/README.md)
 
 ## Webinar-Technik
 
