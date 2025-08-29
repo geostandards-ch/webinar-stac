@@ -92,10 +92,19 @@ stac create-item https://data.geo.admin.ch/ch.swisstopo.swissalti3d/swissalti3d_
 stac add --collection mycollection stacitem.json stac/catalog.json
 ```
 
-* Untersuchen sie, welche Erweiterungen an `catalog.json` und `collection.json` vorgenommen wurden. Schauen Sie insbesondere `extent` und `links` an!
+5. Überprüfen Sie die generierte Katalog-Struktur:
+```
+stac describe stac/catalog.json
+
+* <Catalog id=mycatalog>
+    * <Collection id=mycollection>
+      * <Item id=swissalti3d_2019_2621-1249_0.5_2056_5728>
+```
+
+* Untersuchen sie, welche Erweiterungen an `collection.json` vorgenommen wurden. Schauen Sie insbesondere `extent` und `links` an!
 
 * Schauen Sie sich das hinzugefügte Item `swissalti3d_2019_2621-1249_0.5_2056_5728.json` an. Welche URL (`href`) und `roles` hat das enthaltene Asset?
 
-5. Schliesslich können Sie den erstellten statischen Katalog als QGIS STAC-Connection mit der URL `file:///<verzeichnis>/stac/catalog.json` hinzufügen und den Inhalt im Browser anschauen
+6. Schliesslich können Sie den erstellten statischen Katalog als QGIS STAC-Connection mit der URL `file:///<verzeichnis>/stac/catalog.json` hinzufügen und den Inhalt im Browser anschauen
 
 ![](qgis-6-browser.png)
