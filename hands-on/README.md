@@ -37,7 +37,7 @@ Alternativ kann auch pip verwendet werden:
 pip install stactools
 ```
 
-Erstellen Sie ein Verzeichnis `stac` und einen minimalen Katalog (`stac/catalog.json`) mit folgendem Inhalt:
+1. Erstellen Sie ein Verzeichnis `stac` und einen minimalen Katalog (`stac/catalog.json`) mit folgendem Inhalt:
 ```json
 {
   "stac_version": "1.1.0",
@@ -56,7 +56,7 @@ Erstellen Sie ein Verzeichnis `stac` und einen minimalen Katalog (`stac/catalog.
 }
 ```
 
-Erstellen Sie eine minimale Collection (`stac/collection.json`) mit folgendem Inhalt:
+2. Erstellen Sie eine minimale Collection (`stac/collection.json`) mit folgendem Inhalt:
 ```json
 {
     "stac_version": "1.1.0",
@@ -83,20 +83,19 @@ Erstellen Sie eine minimale Collection (`stac/collection.json`) mit folgendem In
 }
 ```
 
-Erstellen Sie ein Item mit Hilfe von stactools mit folgendem Befehl:
+3. Erstellen Sie ein Item mit Hilfe von stactools mit folgendem Befehl:
 ```shell
 stac create-item https://data.geo.admin.ch/ch.swisstopo.swissalti3d/swissalti3d_2019_2621-1249/swissalti3d_2019_2621-1249_0.5_2056_5728.tif >stacitem.json
 ```
-
-Schauen Sie sich das erstellte `stacitem.json` an. Welche URL hat das enthaltene Asset?
-
-Fügen Sie das Item mit Hilfe von stactools zur Collection hinzu:
+4. Fügen Sie das Item mit Hilfe von stactools zur Collection hinzu:
 ```shell
 stac add --collection mycollection stacitem.json stac/catalog.json
 ```
 
-Untersuchen sie, welche Erweiterungen an `catalog.json` und `collection.json` vorgenommen wurden. Schauen Sie insbesondere `extent` und `links` an!
+* Untersuchen sie, welche Erweiterungen an `catalog.json` und `collection.json` vorgenommen wurden. Schauen Sie insbesondere `extent` und `links` an!
 
-Schliesslich können Sie den erstellten statischen Katalog als QGIS STAC-Connection mit der URL `file:///<verzeichnis>/stac/catalog.json` hinzufügen und den Inhalt im Browser anschauen:
+* Schauen Sie sich das hinzugefügte Item `swissalti3d_2019_2621-1249_0.5_2056_5728.json` an. Welche URL (`href`) und `roles` hat das enthaltene Asset?
+
+5. Schliesslich können Sie den erstellten statischen Katalog als QGIS STAC-Connection mit der URL `file:///<verzeichnis>/stac/catalog.json` hinzufügen und den Inhalt im Browser anschauen
 
 ![](qgis-6-browser.png)

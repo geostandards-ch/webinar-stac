@@ -38,6 +38,3 @@ Export Speaker Notes (pdfpc):
 
 Start Präsentation:
 `pdfpc slides.pdf`
-
-In Window-Modudus für Aufnhame mit OBS:
-`pdfpc --windowed=both slides.pdf`
