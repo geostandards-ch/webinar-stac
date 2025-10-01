@@ -9,7 +9,7 @@ Inhalt:
 
 ## Webinar und Schulungsunterlagen
 
-* Video
+* [Video](https://youtu.be/eFFFIK9zK9k)
 * [Folien (PDF)](./slides/slides.pdf)
 * [Schulungsunterlagen](./hands-on/README.md)
 
