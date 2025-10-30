@@ -10,7 +10,7 @@ Inhalt:
 ## Webinar und Schulungsunterlagen
 
 * [Video](https://youtu.be/eFFFIK9zK9k)
-* [Folien (PDF)](./slides/slides.pdf)
+* [Folien (PDF)](./slides/slides.pdf) ([Français](./slides/slides-fr.pdf))
 * [Schulungsunterlagen](./hands-on/README.md)
 
 ## Webinar-Technik
